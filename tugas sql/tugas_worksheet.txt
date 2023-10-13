@@ -1,0 +1,23 @@
+INNER JOIN:
+
+1. SELECT Pesanan.id, Pesanan.tanggal, Pesanan.total, Pelanggan.nama, Kartu.diskon
+FROM Pesanan
+INNER JOIN Pelanggan ON Pesanan.id_pelanggan = Pelanggan.kode
+INNER JOIN Kartu ON Pesanan.id_kartu = Kartu.id
+
+2. SELECT Pembelian.id, Pembelian.tanggal, Pembelian.nomor, Pembelian.jumlah, Pembelian.harga, Produk.nama, Vendor.nama
+FROM Pembelian
+INNER JOIN Produk ON Pembelian.id_produk = Produk.id
+INNER JOIN Vendor ON Pembelian.id_vendor = Vendor.id
+
+LEFT JOIN:
+
+3. SELECT Pesanan.id, Pesanan.tanggal, Pesanan.total, Pelanggan.nama, Produk.kode, Produk.nama, Jenis_produk.nama,
+Pesanan_items.qty, Pesanan_items.harga_jual
+FROM Pesanan
+LEFT JOIN Pelanggan ON Pesanan.id_pelanggan = Pelanggan.kode
+LEFT JOIN Pesanan_items ON Pesanan.id = Pesanan_items.id_pesanan
+LEFT JOIN Produk ON Pesanan_items.id_produk = Produk.id
+LEFT JOIN Jenis_produk ON Produk.id_jenis = Jenis_produk.id
+
+
